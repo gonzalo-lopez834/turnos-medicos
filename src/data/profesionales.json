@@ -1,0 +1,194 @@
+[
+  {
+    "medicoId": "c91e64e0-4c13-4863-9097-88f338051542",
+    "nombre": "Ana García",
+    "especialidad": "Cardiología",
+    "activo": true
+  },
+  {
+    "medicoId": "df43106d-91a4-45ab-b8f4-f8dc29f18594",
+    "nombre": "Carlos Fernández",
+    "especialidad": "Dermatología",
+    "activo": true
+  },
+  {
+    "medicoId": "f16d5f67-0df5-457e-8c70-a3a644f64ea1",
+    "nombre": "Lucía Martínez",
+    "especialidad": "Pediatría",
+    "activo": true
+  },
+  {
+    "medicoId": "9f2a91d1-0584-4b08-8406-3ae33ce042bc",
+    "nombre": "Diego Rodríguez",
+    "especialidad": "Traumatología",
+    "activo": true
+  },
+  {
+    "medicoId": "13a9ea61-a031-4555-9aad-ed67724f5a65",
+    "nombre": "Sofía López",
+    "especialidad": "Ginecología",
+    "activo": true
+  },
+  {
+    "medicoId": "d61f5d83-da2f-4b3a-9b7d-9743e43537b1",
+    "nombre": "Martín Pérez",
+    "especialidad": "Neurología",
+    "activo": true
+  },
+  {
+    "medicoId": "e9fecc2b-4d9d-4e49-965d-17518deade45",
+    "nombre": "Valentina Sánchez",
+    "especialidad": "Oftalmología",
+    "activo": true
+  },
+  {
+    "medicoId": "d70d3dcc-93f5-4ccb-a3ca-478386d9fbf7",
+    "nombre": "Federico Gómez",
+    "especialidad": "Otorrinolaringología",
+    "activo": true
+  },
+  {
+    "medicoId": "b5c7ab93-3258-4c45-bd2a-34adf0a48716",
+    "nombre": "Camila Díaz",
+    "especialidad": "Psiquiatría",
+    "activo": true
+  },
+  {
+    "medicoId": "fcb7bbd5-dea2-4902-b99d-283a84bb3f6a",
+    "nombre": "Nicolás Torres",
+    "especialidad": "Endocrinología",
+    "activo": true
+  },
+  {
+    "medicoId": "71685a21-c3fe-4870-8f0e-767579f379ad",
+    "nombre": "Julieta Ramírez",
+    "especialidad": "Gastroenterología",
+    "activo": true
+  },
+  {
+    "medicoId": "abe6f2bc-3147-4e06-8598-fb57e8857337",
+    "nombre": "Tomás Flores",
+    "especialidad": "Urología",
+    "activo": true
+  },
+  {
+    "medicoId": "41d280f5-ca03-4e60-a6dd-1aaee3ef18d9",
+    "nombre": "Agustina Romero",
+    "especialidad": "Neumología",
+    "activo": true
+  },
+  {
+    "medicoId": "e6712781-e215-4a51-be38-64a4d8cd0e5e",
+    "nombre": "Facundo Álvarez",
+    "especialidad": "Reumatología",
+    "activo": true
+  },
+  {
+    "medicoId": "d0ce5d9e-4221-49c4-841c-5baa9ba96544",
+    "nombre": "Florencia Suárez",
+    "especialidad": "Oncología",
+    "activo": true
+  },
+  {
+    "medicoId": "5435e68b-3dc2-4133-90ac-1d496a9f2da9",
+    "nombre": "Ignacio Molina",
+    "especialidad": "Nefrología",
+    "activo": true
+  },
+  {
+    "medicoId": "9e34b45e-bdef-4375-a6c1-7e91b584fcaf",
+    "nombre": "Milagros Ortiz",
+    "especialidad": "Hematología",
+    "activo": true
+  },
+  {
+    "medicoId": "1dffb858-09e2-4f2c-9c61-aba89e4df23b",
+    "nombre": "Franco Castro",
+    "especialidad": "Alergología",
+    "activo": true
+  },
+  {
+    "medicoId": "a289a5dd-3c92-42d5-b49d-7c2b0fc5792c",
+    "nombre": "Victoria Ruiz",
+    "especialidad": "Medicina General",
+    "activo": true
+  },
+  {
+    "medicoId": "6e9451c5-a4e6-4f5d-a7c3-e25619040f68",
+    "nombre": "Santiago Silva",
+    "especialidad": "Nutrición",
+    "activo": true
+  },
+  {
+    "medicoId": "76b1a21c-4dd5-4afe-8624-e6d425a3f8ef",
+    "nombre": "Micaela Rojas",
+    "especialidad": "Kinesiología",
+    "activo": true
+  },
+  {
+    "medicoId": "28ece927-7ebc-44b1-a624-e2382895f4a0",
+    "nombre": "Joaquín Vega",
+    "especialidad": "Odontología",
+    "activo": true
+  },
+  {
+    "medicoId": "6f3e58c0-958c-42ec-a26a-94b0a78c2c55",
+    "nombre": "Guadalupe Núñez",
+    "especialidad": "Cardiología",
+    "activo": true
+  },
+  {
+    "medicoId": "08186c2d-fd35-4fb6-a672-269f5ba481ec",
+    "nombre": "Emiliano Herrera",
+    "especialidad": "Dermatología",
+    "activo": true
+  },
+  {
+    "medicoId": "2861d20b-e103-4b62-8922-310684a0079e",
+    "nombre": "Antonella Medina",
+    "especialidad": "Pediatría",
+    "activo": true
+  },
+  {
+    "medicoId": "6deb9e87-e4a1-4bee-a2c5-b1cd6f59dd2c",
+    "nombre": "Bautista Aguirre",
+    "especialidad": "Traumatología",
+    "activo": true
+  },
+  {
+    "medicoId": "fe91a32f-85e4-4bb1-a678-c7eec9fe8882",
+    "nombre": "Catalina Peña",
+    "especialidad": "Ginecología",
+    "activo": true
+  },
+  {
+    "medicoId": "e001a624-5b0d-437c-8b66-ad04b435410b",
+    "nombre": "Maximiliano Acosta",
+    "especialidad": "Neurología",
+    "activo": true
+  },
+  {
+    "medicoId": "819961a5-fb53-45e1-bc51-2db8f2490bd6",
+    "nombre": "Renata Benítez",
+    "especialidad": "Oftalmología",
+    "activo": true
+  },
+  {
+    "medicoId": "c54d9b00-bb19-4b4d-bd36-b9b4bc603952",
+    "nombre": "Lautaro Cabrera",
+    "especialidad": "Otorrinolaringología",
+    "activo": true
+  },
+  {
+    "medicoId": "4e2ce239-fad6-4e54-8829-bcfa1f389d9d",
+    "nombre": "Delfina Paz",
+    "especialidad": "Psiquiatría",
+    "activo": true
+  },
+  {
+    "medicoId": "f727822e-6edc-4667-96b2-42eae313c986",
+    "nombre": "Bruno Ríos",
+    "especialidad": "Endocrinología",
+    "activo": false
+  }
+]
