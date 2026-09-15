@@ -1,0 +1,404 @@
+{
+  "info": {
+    "_postman_id": "114b95fe-9491-4d75-92df-c099794f5c25",
+    "name": "TurnosMed API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54142083",
+    "_collection_link": "https://go.postman.co/collection/54142083-114b95fe-9491-4d75-92df-c099794f5c25?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Especialidades",
+      "item": [
+        {
+          "name": "GET listar especialidades",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/especialidades",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "especialidades"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET especialidad por id (happy)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/especialidades/d838cba2-9b97-4dcf-abf9-f5b3644413cf",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "especialidades",
+                "d838cba2-9b97-4dcf-abf9-f5b3644413cf"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET especialidad por id (not found)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/especialidades/id-inventado-123",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "especialidades",
+                "id-inventado-123"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST crear especialidad (happy)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"nombreEspecialidad\": \"Cirugía General\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/especialidades",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "especialidades"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST crear especialidad (bad request)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"nombreEspecialidad\": \"\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/especialidades",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "especialidades"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE especialidad (happy)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/especialidades/25a493f6-6329-441d-a17d-532eb02133b3",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "especialidades",
+                "25a493f6-6329-441d-a17d-532eb02133b3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE especialidad (not found)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/especialidades/id-inventado-123",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "especialidades",
+                "id-inventado-123"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Profesionales",
+      "item": [
+        {
+          "name": "GET listar profesionales",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/profesionales",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "profesionales"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET profesional por id (happy)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/profesionales/c91e64e0-4c13-4863-9097-88f338051542",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "profesionales",
+                "c91e64e0-4c13-4863-9097-88f338051542"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET profesional por id (not found)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/profesionales/id-inventado-123",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "profesionales",
+                "id-inventado-123"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST crear profesional (happy)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"nombre\": \"Roberto Sosa\", \"especialidad\": \"Cardiología\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/profesionales",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "profesionales"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST crear profesional (especialidad inexistente)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"nombre\": \"Roberto Sosa\", \"especialidad\": \"Especialidad Inventada\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/profesionales",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "profesionales"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT actualizar profesional (happy)",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"nombre\": \"Roberto Sosa\", \"especialidad\": \"Cardiología\", \"activo\": true}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/profesionales/36ab9a1a-7999-4a0e-b096-1ba041aaa9a1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "profesionales",
+                "36ab9a1a-7999-4a0e-b096-1ba041aaa9a1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT actualizar profesional (not found)",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"nombre\": \"Roberto Sosa\", \"especialidad\": \"Cardiología\", \"activo\": true}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/profesionales/id-inventado-123",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "profesionales",
+                "id-inventado-123"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE profesional (happy)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/profesionales/36ab9a1a-7999-4a0e-b096-1ba041aaa9a1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "profesionales",
+                "36ab9a1a-7999-4a0e-b096-1ba041aaa9a1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE profesional (not found)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/profesionales/id-inventado-123",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "profesionales",
+                "id-inventado-123"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "GET ruta inexistente (404 global)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/esto-no-existe",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "esto-no-existe"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    }
+  ]
+}
