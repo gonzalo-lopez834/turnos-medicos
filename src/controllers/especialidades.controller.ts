@@ -2,39 +2,42 @@ import type { Request, Response } from 'express';
 import { randomUUID } from 'node:crypto';
 import { especialidades } from '../store';
 
-export function getEspecialidades(req: Request, res: Response): void {
+export const getEspecialidades = async (req: Request, res: Response): Promise<Response> => {
+  let status = 500;
   try {
-    res.status(200).json(especialidades);
+    status = 200;
+    return res.status(status).json(especialidades);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Error interno al obtener las especialidades' });
+    return res.status(status).json({ error: (error as Error).message });
   }
-}
+};
 
-export function getEspecialidadPorId(req: Request, res: Response): void {
+export const getEspecialidadPorId = async (req: Request, res: Response): Promise<Response> => {
+  let status = 500;
   try {
     const { id } = req.params;
     const especialidad = especialidades.find((e) => e.especialidadId === id);
 
     if (!especialidad) {
-      res.status(404).json({ error: `No existe una especialidad con id ${id}` });
-      return;
+      status = 404;
+      throw new Error(`No existe una especialidad con id ${id}`);
     }
 
-    res.status(200).json(especialidad);
+    status = 200;
+    return res.status(status).json(especialidad);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Error interno al buscar la especialidad' });
+    return res.status(status).json({ error: (error as Error).message });
   }
-}
+};
 
-export function crearEspecialidad(req: Request, res: Response): void {
+export const crearEspecialidad = async (req: Request, res: Response): Promise<Response> => {
+  let status = 500;
   try {
     const { nombreEspecialidad } = req.body ?? {};
 
     if (!nombreEspecialidad || typeof nombreEspecialidad !== 'string' || !nombreEspecialidad.trim()) {
-      res.status(400).json({ error: 'El campo nombreEspecialidad es obligatorio y debe ser un texto no vacío' });
-      return;
+      status = 400;
+      throw new Error('El campo nombreEspecialidad es obligatorio y debe ser un texto no vacío');
     }
 
     const nuevaEspecialidad = {
@@ -49,21 +52,22 @@ export function crearEspecialidad(req: Request, res: Response): void {
     console.log('Nueva especialidad creada. Estado actual de "especialidades":');
     console.table(especialidades);
 
-    res.status(201).json(nuevaEspecialidad);
+    status = 201;
+    return res.status(status).json(nuevaEspecialidad);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Error interno al crear la especialidad' });
+    return res.status(status).json({ error: (error as Error).message });
   }
-}
+};
 
-export function eliminarEspecialidad(req: Request, res: Response): void {
+export const eliminarEspecialidad = async (req: Request, res: Response): Promise<Response> => {
+  let status = 500;
   try {
     const { id } = req.params;
     const especialidad = especialidades.find((e) => e.especialidadId === id);
 
     if (!especialidad) {
-      res.status(404).json({ error: `No existe una especialidad con id ${id}` });
-      return;
+      status = 404;
+      throw new Error(`No existe una especialidad con id ${id}`);
     }
 
     especialidad.activa = false;
@@ -72,9 +76,9 @@ export function eliminarEspecialidad(req: Request, res: Response): void {
     console.log(`Especialidad "${especialidad.nombreEspecialidad}" dada de baja (soft delete). Estado actual:`);
     console.table(especialidades);
 
-    res.status(200).json(especialidad);
+    status = 200;
+    return res.status(status).json(especialidad);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Error interno al eliminar la especialidad' });
+    return res.status(status).json({ error: (error as Error).message });
   }
-}
+};

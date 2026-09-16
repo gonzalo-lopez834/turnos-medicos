@@ -2,44 +2,47 @@ import type { Request, Response } from 'express';
 import { randomUUID } from 'node:crypto';
 import { profesionales, especialidades } from '../store';
 
-export function getProfesionales(req: Request, res: Response): void {
+export const getProfesionales = async (req: Request, res: Response): Promise<Response> => {
+  let status = 500;
   try {
-    res.status(200).json(profesionales);
+    status = 200;
+    return res.status(status).json(profesionales);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Error interno al obtener los profesionales' });
+    return res.status(status).json({ error: (error as Error).message });
   }
-}
+};
 
-export function getProfesionalPorId(req: Request, res: Response): void {
+export const getProfesionalPorId = async (req: Request, res: Response): Promise<Response> => {
+  let status = 500;
   try {
     const { id } = req.params;
     const profesional = profesionales.find((p) => p.medicoId === id);
 
     if (!profesional) {
-      res.status(404).json({ error: `No existe un profesional con id ${id}` });
-      return;
+      status = 404;
+      throw new Error(`No existe un profesional con id ${id}`);
     }
 
-    res.status(200).json(profesional);
+    status = 200;
+    return res.status(status).json(profesional);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Error interno al buscar el profesional' });
+    return res.status(status).json({ error: (error as Error).message });
   }
-}
+};
 
-export function crearProfesional(req: Request, res: Response): void {
+export const crearProfesional = async (req: Request, res: Response): Promise<Response> => {
+  let status = 500;
   try {
     const { nombre, especialidad, activo } = req.body ?? {};
 
     if (!nombre || typeof nombre !== 'string' || !nombre.trim()) {
-      res.status(400).json({ error: 'El campo nombre es obligatorio y debe ser un texto no vacío' });
-      return;
+      status = 400;
+      throw new Error('El campo nombre es obligatorio y debe ser un texto no vacío');
     }
 
     if (!especialidad || typeof especialidad !== 'string' || !especialidad.trim()) {
-      res.status(400).json({ error: 'El campo especialidad es obligatorio y debe ser un texto no vacío' });
-      return;
+      status = 400;
+      throw new Error('El campo especialidad es obligatorio y debe ser un texto no vacío');
     }
 
     const especialidadExiste = especialidades.some(
@@ -47,8 +50,8 @@ export function crearProfesional(req: Request, res: Response): void {
     );
 
     if (!especialidadExiste) {
-      res.status(400).json({ error: `La especialidad "${especialidad}" no existe en el listado de especialidades` });
-      return;
+      status = 400;
+      throw new Error(`La especialidad "${especialidad}" no existe en el listado de especialidades`);
     }
 
     const nuevoProfesional = {
@@ -64,38 +67,39 @@ export function crearProfesional(req: Request, res: Response): void {
     console.log('Nuevo profesional registrado. Estado actual de "profesionales":');
     console.table(profesionales);
 
-    res.status(201).json(nuevoProfesional);
+    status = 201;
+    return res.status(status).json(nuevoProfesional);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Error interno al crear el profesional' });
+    return res.status(status).json({ error: (error as Error).message });
   }
-}
+};
 
-export function actualizarProfesional(req: Request, res: Response): void {
+export const actualizarProfesional = async (req: Request, res: Response): Promise<Response> => {
+  let status = 500;
   try {
     const { id } = req.params;
     const profesional = profesionales.find((p) => p.medicoId === id);
 
     if (!profesional) {
-      res.status(404).json({ error: `No existe un profesional con id ${id}` });
-      return;
+      status = 404;
+      throw new Error(`No existe un profesional con id ${id}`);
     }
 
     const { nombre, especialidad, activo } = req.body ?? {};
 
     if (!nombre || typeof nombre !== 'string' || !nombre.trim()) {
-      res.status(400).json({ error: 'El campo nombre es obligatorio y debe ser un texto no vacío' });
-      return;
+      status = 400;
+      throw new Error('El campo nombre es obligatorio y debe ser un texto no vacío');
     }
 
     if (!especialidad || typeof especialidad !== 'string' || !especialidad.trim()) {
-      res.status(400).json({ error: 'El campo especialidad es obligatorio y debe ser un texto no vacío' });
-      return;
+      status = 400;
+      throw new Error('El campo especialidad es obligatorio y debe ser un texto no vacío');
     }
 
     if (typeof activo !== 'boolean') {
-      res.status(400).json({ error: 'El campo activo es obligatorio y debe ser booleano' });
-      return;
+      status = 400;
+      throw new Error('El campo activo es obligatorio y debe ser booleano');
     }
 
     const especialidadExiste = especialidades.some(
@@ -103,8 +107,8 @@ export function actualizarProfesional(req: Request, res: Response): void {
     );
 
     if (!especialidadExiste) {
-      res.status(400).json({ error: `La especialidad "${especialidad}" no existe en el listado de especialidades` });
-      return;
+      status = 400;
+      throw new Error(`La especialidad "${especialidad}" no existe en el listado de especialidades`);
     }
 
     profesional.nombre = nombre.trim();
@@ -115,21 +119,22 @@ export function actualizarProfesional(req: Request, res: Response): void {
     console.log(`Profesional "${profesional.nombre}" actualizado. Estado actual de "profesionales":`);
     console.table(profesionales);
 
-    res.status(200).json(profesional);
+    status = 200;
+    return res.status(status).json(profesional);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Error interno al actualizar el profesional' });
+    return res.status(status).json({ error: (error as Error).message });
   }
-}
+};
 
-export function eliminarProfesional(req: Request, res: Response): void {
+export const eliminarProfesional = async (req: Request, res: Response): Promise<Response> => {
+  let status = 500;
   try {
     const { id } = req.params;
     const profesional = profesionales.find((p) => p.medicoId === id);
 
     if (!profesional) {
-      res.status(404).json({ error: `No existe un profesional con id ${id}` });
-      return;
+      status = 404;
+      throw new Error(`No existe un profesional con id ${id}`);
     }
 
     profesional.activo = false;
@@ -138,9 +143,9 @@ export function eliminarProfesional(req: Request, res: Response): void {
     console.log(`Profesional "${profesional.nombre}" dado de baja (soft delete). Estado actual:`);
     console.table(profesionales);
 
-    res.status(200).json(profesional);
+    status = 200;
+    return res.status(status).json(profesional);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Error interno al eliminar el profesional' });
+    return res.status(status).json({ error: (error as Error).message });
   }
-}
+};
